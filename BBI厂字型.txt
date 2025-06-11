@@ -1,0 +1,24 @@
+{参数定义}
+N1:=21; {判断周期，默认21天}
+N2:=0.03; {平台整理阈值，默认0.03}
+
+BBI:=(MA(CLOSE,3)+MA(CLOSE,6)+MA(CLOSE,12)+MA(CLOSE,24))/4;
+
+{定义厂字型走势的条件}
+{1. 前期上升趋势}
+上升趋势:=COUNT(BBI>REF(BBI,1),N1)>(N1*0.8);
+
+{2. 平台整理}
+平台整理:=ABS(BBI-REF(BBI,1))<N2 AND ABS(REF(BBI,1)-REF(BBI,2))<N2 AND ABS(REF(BBI,2)-REF(BBI,3))<N2;
+
+{3. 向上突破}
+向上突破:=BBI>REF(BBI,1) AND REF(BBI,1)>REF(BBI,2) AND REF(BBI,2)>REF(BBI,3);
+
+{4. 涨幅条件}
+涨幅条件:=(C-REF(C,N1))/REF(C,N1)*100>30;
+
+{综合判断}
+厂字型:=上升趋势 AND 平台整理 AND 向上突破 AND 涨幅条件;
+
+{输出结果}
+厂字型,COLORRED,LINETHICK2; 
