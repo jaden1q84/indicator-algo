@@ -1,0 +1,10 @@
+短期:=100*(C-LLV(L,N1))/(HHV(C,N1)-LLV(L,N1));
+长期:=100*(C-LLV(L,N2))/(HHV(C,N2)-LLV(L,N2));
+单针下20:=(长期>=80 AND 短期<=20 AND REF(短期,1)>90 AND REF(长期,1)>90);
+
+RSV:=(CLOSE-LLV(LOW,9))/(HHV(HIGH,9)-LLV(LOW,9))*100;
+K:=SMA(RSV,3,1);
+D:=SMA(K,3,1);
+J:=3*K-2*D;
+
+选股条件: J<=20 AND 单针下20;

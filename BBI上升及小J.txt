@@ -1,0 +1,9 @@
+BBI:=(MA(C,5)+MA(C,10)+MA(C,20)+MA(C,60))/4;
+BBI上升:=COUNT(BBI>REF(BBI,1),N4)>(N4*0.9);
+
+RSV:=(CLOSE-LLV(LOW,9))/(HHV(HIGH,9)-LLV(LOW,9))*100;
+K:=SMA(RSV,3,1);
+D:=SMA(K,3,1);
+J:=3*K-2*D;
+
+选股条件: J<=20 AND BBI上升;
