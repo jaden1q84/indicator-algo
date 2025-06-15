@@ -29,8 +29,8 @@ N2:=21;
     (C>REF(C,1) AND REF(C,1)<REF(C,2)) AND
     (
         (短期>90 AND 长期>90) AND 
-        (短期T_1<40 AND 长期T_1>70 AND 短期T_3>90 AND 长期T_3>90) OR
-        ((短期T_1<40 OR 短期T_2<40) AND (长期T_1>70 AND 长期T_2>70) AND (短期T_3>90 AND 长期T_3>90)) OR
-        ((短期T_1<40 OR 短期T_2<40 OR 短期T_3<40) AND (长期T_1>70 AND 长期T_2>70 AND 长期T_3>70) AND (短期T_4>70 AND 长期T_4>90))
+        (短期T_1<40 AND 长期T_1>65 AND 短期T_3>90 AND 长期T_3>90) OR
+        ((短期T_1<40 OR 短期T_2<40) AND (长期T_1>65 AND 长期T_2>65) AND (短期T_3>90 AND 长期T_3>90)) OR
+        ((短期T_1<40 OR 短期T_2<40 OR 短期T_3<40) AND (长期T_1>65 AND 长期T_2>65 AND 长期T_3>65) AND (短期T_4>80 AND 长期T_4>90))
     );
 

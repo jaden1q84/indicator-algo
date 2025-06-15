@@ -6,4 +6,7 @@ K:=SMA(RSV,3,1);
 D:=SMA(K,3,1);
 J:=3*K-2*D;
 
-选股条件: J<=20 AND BBI上升;
+DIFF:=EMA(CLOSE,12)-EMA(CLOSE,26);
+MACD零轴上:=DIFF>0;
+
+选股条件: J<=20 AND BBI上升 AND MACD零轴上;
